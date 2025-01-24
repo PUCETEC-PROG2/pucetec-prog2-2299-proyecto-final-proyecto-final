@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import MusicProduct, ElectronicProduct, Product, Order, OrderItem, Client, OrderMusicItem, OrderElectronicItem
+from .models import MusicProduct, ElectronicProduct, Order, Client, OrderMusicItem, OrderElectronicItem
 
 @admin.register(MusicProduct)
 class MusicProductAdmin(admin.ModelAdmin):
@@ -11,16 +11,8 @@ class MusicProductAdmin(admin.ModelAdmin):
 class ElectronicProductAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
-    pass
-
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(OrderItem)
-class OrderItemAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(Client)
