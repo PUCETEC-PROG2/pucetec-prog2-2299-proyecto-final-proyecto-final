@@ -35,7 +35,7 @@ class MusicProduct(Product):
     FORMAT_CHOICES = [
         ('cd', 'CD'),
         ('vinyl', 'Vinilo'),
-        ('cassete', 'Cassete'),
+        ('cassete', 'Cassete')
     ]
     format = models.CharField(max_length=100, choices=FORMAT_CHOICES)
     
@@ -59,7 +59,7 @@ class ElectronicProduct(Product):
     def __str__(self):
         return f"{self.brand} - {self.model}"
 
-class Client:
+class Client(models.Model):
     name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
