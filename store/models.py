@@ -59,7 +59,7 @@ class ElectronicProduct(Product):
     def __str__(self):
         return f"{self.brand} - {self.model}"
 
-class Client:
+class Client(models.Model):
     name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
