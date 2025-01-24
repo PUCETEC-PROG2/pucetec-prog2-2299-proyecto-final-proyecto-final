@@ -75,11 +75,12 @@ WSGI_APPLICATION = 'tienda_discos.wsgi.application'
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "OPTIONS": {
-            "service": "music_store",
-        },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'music_store',
+        'USER': 'tienda',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
