@@ -35,7 +35,7 @@ class MusicProduct(Product):
     FORMAT_CHOICES = [
         ('cd', 'CD'),
         ('vinyl', 'Vinilo'),
-        ('cassete', 'Cassete'),
+        ('cassete', 'Cassete')
     ]
     format = models.CharField(max_length=100, choices=FORMAT_CHOICES)
     
