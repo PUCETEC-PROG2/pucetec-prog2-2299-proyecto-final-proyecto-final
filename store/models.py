@@ -38,6 +38,7 @@ class MusicProduct(Product):
         ('cassete', 'Cassete')
     ]
     format = models.CharField(max_length=100, choices=FORMAT_CHOICES)
+    picture = models.ImageField(null=True)
     
     def __str__(self):
         return f"{self.artist} - {self.title}"
@@ -55,6 +56,7 @@ class ElectronicProduct(Product):
     ]
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     description = models.TextField(max_length=200)
+    picture = models.ImageField(null=True)
     
     def __str__(self):
         return f"{self.brand} - {self.model}"
@@ -65,6 +67,7 @@ class Client(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=10)
     address = models.TextField(max_length=200)
+
     
 class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.PROTECT)
@@ -76,7 +79,7 @@ class Order(models.Model):
         ('entregado', 'Entregado'),
         ('cancelado', 'cancelado'),
     ]
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pendiente')
     music_products = models.ManyToManyField(MusicProduct, through='OrderMusicItem')
     electronic_products = models.ManyToManyField(ElectronicProduct, through='OrderElectronicItem')
 
