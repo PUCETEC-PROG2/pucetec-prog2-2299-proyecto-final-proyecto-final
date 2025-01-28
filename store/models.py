@@ -9,6 +9,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
     created_at = models.DateTimeField(auto_now_add=True)
     description = models.TextField(max_length=200)
+    picture = models.ImageField(upload_to='products/', null=True, blank=True)
     class Meta:
         abstract = True
 
@@ -38,8 +39,6 @@ class MusicProduct(Product):
         ('cassete', 'Cassete')
     ]
     format = models.CharField(max_length=100, choices=FORMAT_CHOICES)
-    picture = models.ImageField(null=True)
-    
     def __str__(self):
         return f"{self.artist} - {self.title}"
     
@@ -56,8 +55,6 @@ class ElectronicProduct(Product):
     ]
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     description = models.TextField(max_length=200)
-    picture = models.ImageField(null=True)
-    
     def __str__(self):
         return f"{self.brand} - {self.model}"
 
